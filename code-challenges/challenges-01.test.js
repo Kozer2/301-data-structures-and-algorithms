@@ -94,10 +94,16 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
+  console.log(arr);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  while (arr.length < times){
+    arr.push(num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
