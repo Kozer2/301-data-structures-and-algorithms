@@ -130,7 +130,7 @@ const createList = (availableItems) => {
     if(fruitInventory.available === true){
       arrList.push(fruitInventory.name);
     }
-
+ 
   });
   return arrList;
 };
