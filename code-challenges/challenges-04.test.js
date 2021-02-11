@@ -113,7 +113,18 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  if (typeof(input) === 'number'){
+    return false
+  }
+   
+   if (input.match(/^October$/) || input.match(/^Oct$/) || input.match(/^october$/) || input.match(/^oct$/)){
+    return true;
+  }
+  else {
+    return false;
+  }
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -244,7 +255,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
