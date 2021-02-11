@@ -8,6 +8,11 @@ Write a function called addTwo that takes in an array and adds two to every valu
 
 const addTwo = (arr) => {
   // Solution code here...
+  const addTwo2 = [];
+  for (var i = 0; i < arr.length; i++){
+    addTwo2.push(2 + arr[i]);
+  }
+  return addTwo2;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -41,6 +46,8 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  let containNum = /.\d/;
+  return containNum.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,7 +59,14 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  if (input.match(/\bworld/)){
+    return true;
+  }
+  else {
+    return false;
+  }
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -64,6 +78,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  return str.match(/\b[A-Z]\w*/g) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,6 +89,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let newArr = []
+  let regEx = /^[A-J]/;
+  arr.forEach(value => {
+    if(regEx.test(value)){
+      newArr.push(value);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
