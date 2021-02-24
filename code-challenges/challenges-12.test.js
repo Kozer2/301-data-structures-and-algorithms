@@ -10,14 +10,8 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-  var num = 0;
-  var reduction = arr.reduce(function(a,b){
-    if (a > b){
-      num = a;
-    } else{
-      num = b;
-    }
-    return num;
+  return arr.reduce((acc, cur) => {
+    return cur > acc ? cur : acc;
   });
 };
 
@@ -36,17 +30,18 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
-  let i;
-  let max = matrix[0];
-
-  for (i = 1; i < matrix.length; i++) {
-    if (matrix[i] > max)
-      max = matrix[i];
-  }
-
-  return max;
-};
+  const maxArray = [];
+  let neoMatrix = matrix.map(arr => {
+    let thisMax = arr.reduce( (max, value) => {
+      return (value > max ? value : max);
+    });
+    maxArray.push(thisMax);
+  });
+  let answer = maxArray.reduce( (max, val) => {
+    return (val > max ? val : max);
+  })
+  return answer;
+};;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -64,6 +59,13 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let totalSum = 0;
+  matrix.forEach((arr) =>{
+    arr.forEach(value => {
+      totalSum += value;
+    });
+  });
+  return totalSum;
 };
 
 
